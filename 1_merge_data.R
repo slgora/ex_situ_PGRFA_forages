@@ -1,6 +1,7 @@
 ### Project: Global Crop Conservation Strategies Metrics ###
 ### Forages Re-processing
 ### Read in new forages data, pre-process for joining with previous forages data, re-process datasets
+### Note: BGCI data not updated with new forages data
 ### (Filter for updated forages croplist later in script: 3_Post_taxa_standardization_processing.R)
 ### Data sources, clean individually and Join when it is possible (Genesys and WIEWS)
 ### Set working directory: working directory is assumed to be Code/R_code , following shared folder structure ####
