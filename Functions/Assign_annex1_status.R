@@ -36,14 +36,12 @@ assign_annex1status = function(df, standardize_taxa = 'Standardized_taxa') {
 
   exclude = c('Lepidium meyenii' , 'Musa textilis' , 'Phaseolus polyanthus', 'Phaseolus dumosus' ,'Zea perennis' , 'Zea diploperennis' , 'Zea luxurians', 'Solanum phureja')
 
-  #section_Petota <- read_excel("../../Data_processing/Support_files/Annex1_crops/Solanum_section_Petota_Species_GRIN-Global.xlsx") %>%
-  section_Petota <- read_excel("G:/.shortcut-targets-by-id/1GnMqdK_h04rDh_GYxxYBWiyuGZFSN2GZ/GCCS metrics project shared folder/GCCSmetricsI/Data_processing/Support_files/Annex1_crops/Solanum_section_Petota_Species_GRIN-Global.xlsx")%>%
+  section_Petota <- read_excel("../../Data_processing/Support_files/Annex1_crops/Solanum_section_Petota_Species_GRIN-Global.xlsx") %>%
     mutate(GENUS = word(Name, 1),
            SPECIES = word(Name, 2))
   Petota_species = as.list(trimws(section_Petota$SPECIES))
 
-  #section_Melongena <- read_excel("../../Data_processing/Support_files/Annex1_crops/Section_Melongena_Species_GRIN-Global.xlsx") %>%
-  section_Melongena <- read_excel("G:/.shortcut-targets-by-id/1GnMqdK_h04rDh_GYxxYBWiyuGZFSN2GZ/GCCS metrics project shared folder/GCCSmetricsI/Data_processing/Support_files/Annex1_crops/Section_Melongena_Species_GRIN-Global.xlsx") %>%
+  section_Melongena <- read_excel("../../Data_processing/Support_files/Annex1_crops/Section_Melongena_Species_GRIN-Global.xlsx") %>%
     mutate(GENUS = word(Name, 1),
            SPECIES = word(Name, 2))
   section_Melongena = as.list(trimws(section_Melongena$SPECIES))
@@ -64,3 +62,4 @@ assign_annex1status = function(df, standardize_taxa = 'Standardized_taxa') {
 
   return(df)
 }
+
