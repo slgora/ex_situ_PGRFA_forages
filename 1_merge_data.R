@@ -153,9 +153,14 @@ WIEWS_allcrops$SAMPSTAT[WIEWS_allcrops$SAMPSTAT == "Unknown"] <-  NA # replace u
 WIEWS_allcrops$SAMPSTAT <- as.numeric(substr(WIEWS_allcrops$SAMPSTAT, 1, 3)) # convert SAMPSTAT in MCPD standard
 WIEWS_allcrops$COLLSRC <- as.numeric(substr(WIEWS_allcrops$COLLSRC, 1, 2))  # convert COLLSRC following MCPD standard
 # convert STORAGE in MCPD format
-WIEWS_allcrops$STORAGE <- sapply(
-  str_extract_all(WIEWS_allcrops$STORAGE, "\\d+(?=\\))"),
-  function(x) paste(x, collapse = ";"))
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "12) Seed medium-term"] <-  "10;12"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "20) Field collection"] <-  "20"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "12) Seed medium-term;13) Seed long-term"] <-  "10;12;13"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "13) Seed long-term"] <-  "10;13"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "13) Seed long-term;20) Field collection"] <-  "10;13;20"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "12) Seed medium-term;40) Cryopreserved collection"] <-  "10;12;40"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "12) Seed medium-term;40) Cryopreserved collection;50) DNA collection"] <-  "10;12;40;50"
+WIEWS_allcrops$STORAGE[WIEWS_allcrops$STORAGE == "12) Seed medium-term;50) DNA collection"] <-  "10;12;50"
 
 ## Standardize ACCENUMB field: remove blank/space between institute abbreviation and number
 WIEWS_allcrops  <- WIEWS_allcrops  %>%
