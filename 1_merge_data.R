@@ -192,10 +192,6 @@ WIEWS_allcrops$MLSSTAT[WIEWS_allcrops$MLSSTAT == "Not included"] <-  FALSE
 WIEWS_allcrops$MLSSTAT[WIEWS_allcrops$MLSSTAT == "N"] <-  FALSE
 WIEWS_allcrops <- WIEWS_allcrops %>% mutate(MLSSTAT = as.logical(MLSSTAT))
 
-# correct ORIGCTY field format
-source("../../GCCSmetricsI/Code/R_code/Functions/Correct_ORIGCTY.R")
-WIEWS_allcrops$ORIGCTY <- correct_origcty(WIEWS_allcrops$ORIGCTY)
-
 ############### Genesys PGR: Data Read in and Cleaning ####################
 # ADD NEW FORAGE GENERA TO GENESYS before re-processing
 # drop non-common columns to combine
@@ -229,7 +225,7 @@ Genesys_allcrops <- Genesys_allcrops %>%
   mutate(ACCENUMB = str_replace_all(ACCENUMB, " ", ""))
 
 ####################################################################################################
-##### SELECTION DATA SOURCES TABLE #####          # SG Note: Use the previous selection_data_sources file for now:
+##### SELECTION DATA SOURCES TABLE #####          # SG Note: Use the previous selection_data_sources file:
 # Use selection_data_sources to filter main data
 genesys_keep_inst <- selection_data_sources %>% filter(keep == "Genesys") %>% pull(INSTCODE)
 wiews_keep_inst   <- selection_data_sources %>% filter(keep == "WIEWS") %>% pull(INSTCODE)
