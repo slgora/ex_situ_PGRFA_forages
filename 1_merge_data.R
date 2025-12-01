@@ -92,7 +92,7 @@ write.csv(BGCI_allcrops, "../../GCCSmetricsI/Data_processing/1_merge_data/2025_1
 # add column names to WIEWS_allcrops (no column names present in read in)
 new_names <- c( "Country name","Holding institute code","Accession number",
                 "Taxon","Genus","Species","Accepted Genus","Accepted Species",
-                "Crop name","Acquisition date (YYYY/MM)","Country of origin",
+                "Crop name","Acquisition date (YYYY/MM)","Country of origin (ISO3)",
                 "Biological status","Genebank(s) holding safety duplications - code",
                 "Genebank(s) holding safety duplications","Latitude of collecting site (decimal degrees format)",
                 "Longitude of collecting site (decimal degrees format)","Collecting/acquisition source",
@@ -128,7 +128,7 @@ WIEWS_allcrops <- WIEWS_allcrops %>%
     acceptedSpecies= `Accepted Species`,
     CROPNAME       = `Crop name`,
     ACQDATE        = `Acquisition date (YYYY/MM)`,
-    ORIGCTY        = `Country of origin`,
+    ORIGCTY        = `Country of origin (ISO3)`,
     SAMPSTAT       = `Biological status`,
     DUPLSITE       = `Genebank(s) holding safety duplications - code`,
     DUPLINSTNAME   = `Genebank(s) holding safety duplications`,
