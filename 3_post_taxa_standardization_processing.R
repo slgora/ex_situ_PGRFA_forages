@@ -50,9 +50,9 @@ combined_df <- combined_df %>%
   ) %>%
   select(-GRIN_NAME_trim, -GRIN_AUTHOR_trim)
 # Standardized format of selected species
-combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Digitaria spp."] <- "Digitaria sp."
+combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Digitaria spp. "] <- "Digitaria sp."
 combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Digitaria"] <- "Digitaria sp."
-combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Setaria spp."] <- "Setaria sp."
+combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Setaria spp. "] <- "Setaria sp."
 combined_df$Standardized_taxa[combined_df$Standardized_taxa == "Setaria"] <- "Setaria sp."
 
 #Load standardization table of taxa in genebanks and botanic gardens
